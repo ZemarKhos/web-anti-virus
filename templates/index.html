@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Antivirus</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload a file to scan for malware</h1>
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="fileInput">
+            <button type="submit">Upload</button>
+        </form>
+        <div id="result"></div>
+        <div id="alerts"></div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on('scan_result', function(data) {
+            const alertsDiv = document.getElementById('alerts');
+            const alertMessage = document.createElement('p');
+            alertMessage.textContent = `File: ${data.filename}, Result: ${data.result}`;
+            alertsDiv.appendChild(alertMessage);
+        });
+    </script>
+</body>
+</html>

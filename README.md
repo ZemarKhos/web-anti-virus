@@ -19,7 +19,7 @@ Web Antivirus is a web-based application for scanning files for malware. It uses
 ### Local Setup
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/ZemarKhos/web_antivirus.git](https://github.com/ZemarKhos/web-anti-virus.git)
+   git clone https://github.com/ZemarKhos/web-anti-virus.git
    cd web_antivirus
 2. Install dependencies:
 ```bash
